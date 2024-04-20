@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <meta name="description" content="Demo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" th:href="@{../site.webmanifest}">
+    <link rel="apple-touch-icon" th:href="@{../icon.png}">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" th:href="@{../css/normalize.css}">
+    <link rel="stylesheet" th:href="@{../css/main.css}">
+
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+<nav id="navbar">
+    <div class="dropdownGroup">
+        <label for="catalogDropdown">Catalog</label>
+        <select id="catalogDropdown">
+            <option th:each="catalog : ${catalogNames}" th:value="${catalog}"
+                    th:text="${catalog}"></option>
+        </select>
+    </div>
+
+    <div class="dropdownGroup">
+        <label for="schemaDropdown">Schema</label>
+        <select id="schemaDropdown"></select>
+    </div>
+
+    <div class="dropdownGroup">
+        <label for="tableDropdown">Table</label>
+        <select id="tableDropdown"></select>
+    </div>
+
+    <div class="dropdownGroup">
+        <label for="viewDropdown">View</label>
+        <select id="viewDropdown"></select>
+    </div>
+</nav>
+
+<main>
+    <section class="tableView"></section>
+</main>
+
+<script th:src="@{../js/vendor/modernizr-3.11.2.min.js}"></script>
+<script th:src="@{../js/plugins.js}"></script>
+<script th:src="@{../js/main.js}"></script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    catalogDropdown.addEventListener('change', () => onCatalogChange([[${catalogSchemasMap}]]));
+    schemaDropdown.addEventListener("change", onSchemaChange);
+    tableDropdown.addEventListener('change', () => displayTable(tableDropdown.value));
+    viewDropdown.addEventListener('change', () => displayTable(viewDropdown.value));
+
+    catalogDropdown.dispatchEvent(new Event('change'));
+    /*]]>*/
+</script>
+</body>
+
+</html>
