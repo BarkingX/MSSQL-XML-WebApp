@@ -1,9 +1,14 @@
-*这是一个练习用的XML课设作业*
+
 # MSSQL-XML-WebApp
 
 ## 概述
+*这是一个练习用的XML课设作业,是对SpringBoot框架等多种技术及网页应用编程的初次尝试，最后编辑时间2023年11月16日*
+<br>
+*网页部分基于[HTML5 Boilerplate](https://html5boilerplate.com/)，示例数据库为MSSQL官方示例数据库*
 
 使用Spring boot开发Java Web应用，实现XML 数据的存储、显示与查询：通过 REST API 和 Ajax 调用实现动态地从 MSSQL 数据库中以XML格式检索数据，通过XSLT转换数据以 HTML表格形式显示检索到的表或视图内容。
+
+
 
 ## 示例
 
@@ -12,10 +17,10 @@
 运行进入jar所在目录下，cmd或powershell输入java –jar forxml.jar命令运行jar文件（或直接运行目录下的“启动程序.bat”），弹出窗口中无报错且出现以下信息（Started WebApplicationDemo in x.xxx seconds）则证明程序启动成功：
 
 连接至首页`http://localhost:8081/`:
-
+![page](https://github.com/BarkingX/MSSQL-XML-WebApp/assets/94052616/bff2ef1e-d78c-4515-b2ff-5b41e4d267d3)
 最顶端显示四个下拉菜单，选择表/视图将在下面的表格显示区域显示出对应表/视图中的数据，表头显示格式为`[catalog].[schema].[table]`。
-初次加载时，默认显示第一个目录下第一个模式的第一个表（若该模式无表，则显示第一个视图）：
-若某表/视图中无数据，表格区域显示红色提示：
+初次加载时，默认显示第一个目录下第一个模式的第一个表（若该模式无表，则显示第一个视图）。
+若某表/视图中无数据，表格区域显示红色提示。
 
 ## 使用的技术
 
